@@ -1,0 +1,44 @@
+====================================================
+FIREBASE / GOOGLE SIGN-IN FINGERPRINTS (paste ONCE)
+====================================================
+
+If your app uses Google Sign-In, paste BOTH fingerprints
+into Firebase Console > Project settings > Your apps >
+Android app > "Add fingerprint". Google Sign-In checks the
+SHA-1: with only the SHA-256 it fails with
+"No credentials available".
+
+Package name: com.mynationsim.game
+
+SHA-1:    69:E5:75:A6:2A:16:1C:89:36:81:54:CE:61:0B:EB:20:E6:2A:E8:5F
+SHA-256:  D9:ED:C9:17:13:82:04:95:04:C6:9B:06:26:53:04:C6:95:21:E0:DD:A6:86:03:94:D8:76:F5:7C:C7:D1:20:C0
+
+You only do this ONCE per app. The same signing key is used
+for every future build. No need to update on each build.
+
+PUBLISHING ON GOOGLE PLAY? Play re-signs your app with its
+own key, so an install from Play has a DIFFERENT fingerprint.
+Play Console > your app > Test and release > App integrity >
+"App signing key certificate": add that SHA-1 and SHA-256
+to the same Firebase Android app too, or sign-in fails for
+everyone who installs from Play.
+
+AppMint Signing Info - README
+=============================
+
+This app was signed with YOUR OWN keystore (imported in the
+Signing Key step) - not with an AppMint-generated key.
+
+Files in this folder:
+
+  upload_cert.pem        - your signing certificate (safe to share,
+                           use for Play Console upload-key reset)
+  signing_key_info.txt   - this file
+
+No keystore file is exported: you already hold the original.
+KEEP A BACKUP of your keystore and its password in a safe place.
+Losing it means you cannot sign future updates - AppMint cannot
+recover it for you.
+
+Every future update of this app must be built with the SAME
+imported keystore, or installed copies will refuse the update.
